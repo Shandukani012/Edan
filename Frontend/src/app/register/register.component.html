@@ -1,0 +1,121 @@
+
+<body style="font-family: Raleway, sans-serif;">
+  
+  <div class="row login-form">
+      <div class="col-md-4 offset-md-4">
+          <div></div>
+          <h1 style="text-align: center;margin-top: 42px;"><i class="fas fa-door-open" style="color: #DEAE05;"></i>Edan<span style="color: #DEAE05;">Spa</span></h1>
+          <div style="height: 24px;background:purple;border-top-left-radius: 5px;border-top-right-radius: 5px;">
+              <h1 class="float-none"></h1>
+              <p class="d-flex justify-content-center" style="color: rgb(255,255,255);"><a class="d-block float-start" href="#" style="color: rgb(255,255,255);"></a><strong>Register</strong></p>
+          </div>
+
+
+          <form  [formGroup]="form"  (ngSubmit)="onSubmit()" class="custom-form" style="background: rgb(249, 249, 249);border-style: none;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;"><label class="form-label" style="color:black;">Firstname</label>
+              <div class="input-group"  style="border-style: none;"><input class="form-control" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['Firstname'].errors }"     formControlName="Firstname" id="firstname" ngModel name="firstname" type="text" style="border-style: none;background-color:#DEAE05;">
+                  
+                  <span class="input-group-text" style="background:purple;border-style: none;"><i class="fas fa-user" style="color: rgb(255,255,255);"></i></span>
+              
+              
+              
+          <!-----------vali-->    
+          <div *ngIf="submitted && f['Firstname'].errors" class="invalid-feedback">
+              <div *ngIf="f['Firstname'].errors['required']">Firstname is required</div>
+            </div>
+              
+         <!-----------vali-->    
+              
+              
+              </div>
+              
+              
+              <label class="form-label" style="color: black;">Lastname</label>
+              <div class="input-group" style="border-style: none;"><input class="form-control" [ngClass]="{ 'is-invalid': submitted && f['Lastname'].errors }"  formControlName="Lastname" type="text" id="lastname" ngModel name="lastname" style="border-style: none; background-color:#DEAE05;">
+                  
+                  
+                  <span class="input-group-text" style="background:purple;border-style: none;"><i class="fas fa-user" style="color: rgb(255,255,255);"></i></span>
+              
+                    <!-----------vali-->    
+              
+                    <div *ngIf="submitted && f['Lastname'].errors" class="invalid-feedback">
+                      <div *ngIf="f['Lastname'].errors['required']">Lastname is required</div>
+                    </div>
+                      
+         <!-----------vali-->    
+
+              
+              
+              
+              
+              </div>
+              
+              <label class="form-label" style="color:black;">Email</label>
+              <div class="input-group" style="border-style: none;"><input class="form-control" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" formControlName="email"   type="text" id="email" ngModel name="email"  style="border-style: none; background-color: #DEAE05;"><span class="input-group-text" style="background:purple;border-style: none;"><i class="fas fa-envelope" style="color: rgb(255,255,255);"></i></span>
+              
+          <!-----------vali-->    
+              
+          <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+              <div *ngIf="f['email'].errors['required']">Email is required</div>
+              <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+            </div>
+         <!-----------vali-->    
+              
+              </div>
+              
+              
+              <label class="form-label" style="color:black;">Password</label>
+              <div class="input-group" style="border-style: none;"><input class="form-control"  [ngClass]="{ 'is-invalid': submitted && f['password'].errors } "   formControlName="password"  type="password" id="password" ngModel name="password" style="border-style: none; background-color: #DEAE05;"><span class="input-group-text" style="background: #b911bf;border-style: none; background-color:purple"><i class="fas fa-lock" style="color: rgb(255,255,255);"></i></span>
+              
+              
+              <!-------validation password-->
+              <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                  <div *ngIf="f['password'].errors['required']">Password is required</div>
+                  <div *ngIf="f['password'].errors['minlength']">
+                    Password must be at least 6 characters
+                  </div>
+                  <div *ngIf="f['password'].errors['maxlength']">
+                   must not exceed 40 characters
+                  </div>
+                </div>
+              <!----------------->
+              
+              
+              </div><label class="form-label" style="color:black;">Confirm Password</label>
+              <div class="input-group" style="border-style: none;"><input  class="form-control"  [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"   formControlName="confirmPassword" type="text" type="password" id="confirm" ngModel name="confirm" style="border-style: none; background-color:#DEAE05">
+                  
+                  
+                  <span class="input-group-text" style="background: purple;border-style: none;"><i class="fas fa-lock" style="color: rgb(255,255,255);"></i></span>
+              
+              
+              
+              <!-------validation password-->
+              <div
+      *ngIf="submitted && f['confirmPassword'].errors"
+      class="invalid-feedback"
+    >
+      <div *ngIf="f['confirmPassword'].errors['required']">
+        Confirm Password is required
+      </div>
+      <div *ngIf="f['confirmPassword'].errors['matching']">
+        Confirm Password does not match
+      </div>
+    </div>
+              <!----------------->
+              </div>
+                  
+                  <button class="btn btn-sm d-block submit-button w-100" type="submit"  (click)="onSubmit()" style="background: #DEAE05;border-radius: 5px;">
+                      <i class="fa fa-circle-o-notch"></i>&nbsp;Sign Up</button>
+          </form>
+
+
+
+
+          
+      </div>
+  </div>
+  <footer class="footer-basic">
+      <p class="copyright">LaItalia BnB © 2022</p>
+  </footer>
+
+</body>
+<router-outlet></router-outlet>
